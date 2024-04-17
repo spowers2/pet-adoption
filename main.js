@@ -17,6 +17,7 @@ async function getPetData() {
     const clone = template.content.cloneNode(true)
     clone.querySelector("h3").textContent = pet.name
     clone.querySelector(".pet-description").textContent = pet.description
+    if (!pet.photo) pet.photo = "images/fallback.jpg"
     clone.querySelector(".pet-card-photo img").src = pet.photo
     clone.querySelector(".pet-card-photo img").alt = `Photo of ${pet.name} the ${pet.species}`
     clone.querySelector(".pet-age").textContent = createAgeText(pet.birthYear)
@@ -36,4 +37,19 @@ function createAgeText(birthYear) {
   } else {
     return `${age} years old`
   }
+}
+
+//pet filter button code
+
+const allButtons = document.querySelectorAll(".pet-filter button")
+allButtons.forEach(el => {
+  el.addEventListener("click", handleButtonClick)
+})
+function handleButtonClick(e) {
+  //remove active class from any and all buttons
+  allButtons.forEach(el => el.classList.remove("active"))
+  //add active class to the button that was clicked
+  e.target.classList.add("active")
+
+  //actually filter the pets down below
 }
