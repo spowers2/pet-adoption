@@ -106,17 +106,7 @@ html {
   row-gap: 16px;
 }
 
-@media screen and (min-width: 580px) {
-  .intro-features {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
-@media screen and (min-width: 900px) {
-  .intro-features {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
 
 .circle {
   width: 617px;
@@ -169,7 +159,20 @@ html {
   font-family: 'Source Sans 3', sans-serif;
   font-size: 1.15rem;
   color: #9F9F9F;
+  cursor: pointer;
 }
+
+.pet-filter button:hover {
+  color: #7d7d7d;
+}
+
+
+.pet-filter .active,
+.pet-filter .active:hover {
+  color: #475AFF;
+  text-decoration: underline;
+}
+
 
 .site-footer p {
   text-align: center;
@@ -228,6 +231,18 @@ html {
   color: #A2A2A2;
   font-size: .85rem;
   margin: 0;
+}
+
+@media screen and (min-width: 580px) {
+  .intro-features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .intro-features {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 @media screen and (min-width: 600px) {
