@@ -15,6 +15,7 @@ async function getPetData() {
   const petData = await petPromise.json()
   petData.forEach(pet => {
     const clone = template.content.cloneNode(true)
+    clone.querySelector(".pet-card").dataset.species = pet.species
     clone.querySelector("h3").textContent = pet.name
     clone.querySelector(".pet-description").textContent = pet.description
     if (!pet.photo) pet.photo = "images/fallback.jpg"
@@ -52,4 +53,12 @@ function handleButtonClick(e) {
   e.target.classList.add("active")
 
   //actually filter the pets down below
+  const currentFilter = e.target.dataset.filter
+  document.querySelectorAll(".pet-card").forEach(card => {
+    if (currentFilter == card.dataset.species || currentFilter == "all") {
+      card.style.display = "grid"
+    } else {
+      card.style.display = "none"
+    }
+  })
 }
