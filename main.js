@@ -15,6 +15,10 @@ async function getPetData() {
   const petData = await petPromise.json()
   petData.forEach(element => {
     const clone = template.content.cloneNode(true)
+    clone.querySelector("h3").textContent = element.name
+    clone.querySelector(".pet-description").textContent = element.species
+    clone.querySelector("img").src = element.photo
+    clone.querySelector(".pet-age").textContent = element.age
     wrapper.appendChild(clone)
   })
   document.querySelector(".list-of-pets").appendChild(wrapper)
