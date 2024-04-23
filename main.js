@@ -2,7 +2,7 @@ const template = document.querySelector("#pet-card-template")
 const wrapper = document.createDocumentFragment()
 
 async function getWData() {
-  const weatherPromise = await fetch("api.weather.gov/gridpoints/AKQ/58,99/forecast/")
+  const weatherPromise = await fetch("https://api.weather.gov/gridpoints/AKQ/58,99/forecast/")
   const weatherData = await weatherPromise.json()
   //console.log(weatherData.properties.periods[0].temperature)
   const temp = weatherData.properties.periods[0].temperature
